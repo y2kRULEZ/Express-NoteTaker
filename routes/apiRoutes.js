@@ -1,4 +1,5 @@
 const router=require("express").Router()
+const { readFromFile, readAndAppend } = require('../helpers/fsUtils');
 const fs=require("fs")
 const db=require("../db/db.json")
 
@@ -17,8 +18,10 @@ router.post("/api/notes", (req, res)=>{
             title,
             text,
         }
-        readAndAppend
-      
+        readAndAppend(newNote,'./db/db.json')
+        res.json(`New Note Added!`)     
+    }else{
+        res.error('Error adding note')
     }
 
     //db is array, think about array function to add new element or value of an array
