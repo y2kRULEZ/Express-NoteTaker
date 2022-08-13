@@ -8,11 +8,22 @@ router.get("/api/notes",(req,res)=>{
 
 
 router.post("/api/notes", (req, res)=>{
+    
 
     console.log(req.body)
+    const{title,text} =req.body
+    if (title && text ){
+        const newNote = {
+            title,
+            text,
+        }
+        readAndAppend
+      
+    }
 
     //db is array, think about array function to add new element or value of an array
     //think about update the revised db with new data into the db.json file
+    
     
 })
 
